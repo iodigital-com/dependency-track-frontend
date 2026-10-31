@@ -480,6 +480,8 @@
     "administration": "Administracja",
     "affected_components": "Dotknięte komponenty",
     "affected_projects": "Projekty, których to dotyczy",
+    "affected_projects_alias_tooltip": null,
+    "affected_projects_count": null,
     "age": "Wiek",
     "age_tooltip": "Wiek w formacie okresu ISO-8601 (np. P1Y = 1 rok; P2Y3M = 2 lata, 3 miesiące)",
     "alerts_tagged_with": "Alerty oznaczone tagiem {tag}",

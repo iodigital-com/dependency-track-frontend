@@ -480,6 +480,8 @@
     "administration": "系統設定",
     "affected_components": "受影響的元件",
     "affected_projects": "受影響的專案",
+    "affected_projects_alias_tooltip": null,
+    "affected_projects_count": null,
     "age": "年齡",
     "age_tooltip": "採用 ISO-8601 時期格式的年齡（例如 P1Y = 1 歲；P2Y3M = 2 歲，3 個月）",
     "alerts_tagged_with": "帶有 {tag} 標籤的警示",

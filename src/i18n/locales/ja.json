@@ -480,6 +480,8 @@
     "administration": "管理",
     "affected_components": "影響を受けるコンポーネント",
     "affected_projects": "影響を受けるプロジェクト",
+    "affected_projects_alias_tooltip": null,
+    "affected_projects_count": null,
     "age": "年",
     "age_tooltip": "ISO-8601 期間形式の年齢 (例: P1Y = 1 年、P2Y3M = 2 年 3 か月)",
     "alerts_tagged_with": "{tag} でタグ付けされたアラート",

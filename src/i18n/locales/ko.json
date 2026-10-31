@@ -481,6 +481,8 @@
     "administration": "관리",
     "affected_components": "영향받는 컴포넌트",
     "affected_projects": "영향받는 프로젝트",
+    "affected_projects_alias_tooltip": null,
+    "affected_projects_count": null,
     "age": "경과 기간",
     "age_tooltip": "ISO-8601 기간 형식의 경과 기간 (예: P1Y = 1년; P2Y3M = 2년 3개월)",
     "alerts_tagged_with": "{tag} 태그가 지정된 알림",
