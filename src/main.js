@@ -63,6 +63,8 @@ axios
       Vue.prototype.$oidc.LOGIN_BUTTON_TEXT = '';
     }
 
+    Vue.prototype.$helpUrlLogin = response.data.HELP_URL_LOGIN;
+
     // Feature flags
     Vue.prototype.$featureFlags = response.data.FEATURE_FLAGS;
     Vue.prototype.$isFeatureEnabled = (featureName) => {

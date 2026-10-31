@@ -42,32 +42,41 @@
                       lazy="true"
                       v-show="showLoginForm"
                     />
-                    <b-row style="margin-bottom: 1rem">
-                      <b-col cols="6" v-show="showLoginForm">
-                        <b-button
-                          variant="primary"
-                          type="submit"
-                          class="px-4"
-                          >{{ $t('message.login') }}</b-button
-                        >
-                      </b-col>
-                      <b-col cols="6" v-show="oidcAvailable">
-                        <b-button
-                          :style="{ float: showLoginForm ? 'right' : 'none' }"
-                          v-on:click="oidcLogin()"
-                        >
-                          <span v-if="oidcCheckLoginButtonTextSetted()">{{
-                            oidcLoginButtonText()
-                          }}</span>
-                          <img
-                            alt="OpenID Logo"
-                            src="@/assets/img/openid-logo.svg"
-                            width="60px"
-                            v-else
-                          />
-                        </b-button>
-                      </b-col>
-                    </b-row>
+                    <div
+                      class="d-flex align-items-center flex-wrap"
+                      style="margin-bottom: 1rem"
+                    >
+                      <b-button
+                        variant="primary"
+                        type="submit"
+                        class="px-4 mr-3"
+                        v-show="showLoginForm"
+                        >{{ $t('message.login') }}</b-button
+                      >
+                      <b-button
+                        class="mr-3"
+                        :class="{ 'order-last ml-auto mr-0': showLoginForm }"
+                        v-show="oidcAvailable"
+                        v-on:click="oidcLogin()"
+                      >
+                        <span v-if="oidcCheckLoginButtonTextSetted()">{{
+                          oidcLoginButtonText()
+                        }}</span>
+                        <img
+                          alt="OpenID Logo"
+                          src="@/assets/img/openid-logo.svg"
+                          width="60px"
+                          v-else
+                        />
+                      </b-button>
+                      <b-link
+                        v-if="$helpUrlLogin"
+                        :href="$helpUrlLogin"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >{{ $t('message.help') }}</b-link
+                      >
+                    </div>
                     <b-link
                       v-show="oidcAvailable && !showLoginForm"
                       v-on:click="showLoginForm = true"
