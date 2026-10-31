@@ -25,6 +25,7 @@ else
         '.API_BASE_URL = env.API_BASE_URL
         | .API_WITH_CREDENTIALS = env.API_WITH_CREDENTIALS
         | .FEATURE_FLAGS = $feature_flags
+        | .HELP_URL_LOGIN = (if (env.HELP_URL_LOGIN // "") != "" then env.HELP_URL_LOGIN else .HELP_URL_LOGIN end)
         | .OIDC_ISSUER = env.OIDC_ISSUER
         | .OIDC_CLIENT_ID = env.OIDC_CLIENT_ID
         | .OIDC_SCOPE = env.OIDC_SCOPE
