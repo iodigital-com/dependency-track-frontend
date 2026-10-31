@@ -365,7 +365,11 @@ export default {
   },
   data() {
     return {
-      visibleColumns: [],
+      // Set up front: the first page is loaded before the table reports its
+      // visible columns, and must already request their expanded fields.
+      visibleColumns: Object.keys(COLUMN_DEFAULT_VISIBILITY).filter(
+        initialColumnVisible,
+      ),
       groupFilter: null,
       nameFilter: null,
       versionFilter: null,
