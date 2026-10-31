@@ -9,8 +9,13 @@
         >
           <i class="fa fa-info-circle fa-4x" aria-hidden="true"></i>
         </div>
-        <div>
+        <div style="overflow: hidden">
           <p>{{ message }}</p>
+          <p v-if="helpUrl">
+            <b-link :href="helpUrl" target="_blank" rel="noopener noreferrer">{{
+              $t('message.help')
+            }}</b-link>
+          </p>
         </div>
       </div>
     </div>
@@ -29,6 +34,7 @@ export default {
   name: 'InformationalModal',
   props: {
     message: String,
+    helpUrl: String,
   },
 };
 </script>
