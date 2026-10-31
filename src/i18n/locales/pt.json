@@ -482,6 +482,8 @@
     "affected_projects": "Projetos afetados",
     "affected_projects_alias_tooltip": null,
     "affected_projects_count": null,
+    "affected_projects_excluding_aliases": null,
+    "affected_projects_including_aliases": null,
     "age": "Idade",
     "age_tooltip": "Idade no formato de período ISO-8601 (por exemplo, P1Y = 1 ano; P2Y3M = 2 anos, 3 meses)",
     "alerts_tagged_with": "Alertas marcados com {tag}",

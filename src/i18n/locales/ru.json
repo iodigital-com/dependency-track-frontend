@@ -482,6 +482,8 @@
     "affected_projects": "Затронутые проекты",
     "affected_projects_alias_tooltip": null,
     "affected_projects_count": null,
+    "affected_projects_excluding_aliases": null,
+    "affected_projects_including_aliases": null,
     "age": "Возраст",
     "age_tooltip": "Возраст в формате периода ISO-8601 (например, P1Y = 1 год; P2Y3M = 2 года, 3 месяца)",
     "alerts_tagged_with": "Оповещения с тегом {tag}",

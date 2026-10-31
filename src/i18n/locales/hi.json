@@ -482,6 +482,8 @@
     "affected_projects": "प्रभावित परियोजनाएँ",
     "affected_projects_alias_tooltip": null,
     "affected_projects_count": null,
+    "affected_projects_excluding_aliases": null,
+    "affected_projects_including_aliases": null,
     "age": "आयु",
     "age_tooltip": "ISO-8601 अवधि प्रारूप में आयु (उदाहरणार्थ P1Y = 1 वर्ष; P2Y3M = 2 वर्ष, 3 माह)",
     "alerts_tagged_with": "अलर्ट {टैग} के साथ टैग किए गए",

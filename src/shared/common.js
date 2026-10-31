@@ -303,6 +303,12 @@ $common.resolveVulnAliases = function resolveVulnAliases(vulnSource, aliases) {
     if (vulnSource !== 'CX' && alias.cxId) {
       _resolvedAliases.push($common.resolveSourceVulnInfo('CX', alias.cxId));
     }
+    // Keep the project counts the vulnerability endpoint adds to each alias.
+    for (const resolvedAlias of _resolvedAliases) {
+      resolvedAlias.affectedProjectCount = alias.affectedProjectCount;
+      resolvedAlias.affectedActiveProjectCount =
+        alias.affectedActiveProjectCount;
+    }
     return _resolvedAliases;
   });
 

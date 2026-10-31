@@ -148,8 +148,12 @@ export default {
       this.$refs.table.hideLoading();
     },
   },
+  mounted() {
+    this.$emit('show-inactive-projects', this.showInactiveProjects);
+  },
   watch: {
     showInactiveProjects() {
+      this.$emit('show-inactive-projects', this.showInactiveProjects);
       if (localStorage) {
         localStorage.setItem(
           'AffectedProjectListShowInactiveProjects',
