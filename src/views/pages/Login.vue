@@ -54,8 +54,7 @@
                         >{{ $t('message.login') }}</b-button
                       >
                       <b-button
-                        class="mr-3"
-                        :class="{ 'order-last ml-auto mr-0': showLoginForm }"
+                        :class="showLoginForm ? 'order-last ml-auto' : 'mr-3'"
                         v-show="oidcAvailable"
                         v-on:click="oidcLogin()"
                       >
@@ -104,7 +103,10 @@
         </b-col>
       </b-row>
     </div>
-    <informational-modal v-bind:message="loginError" />
+    <informational-modal
+      v-bind:message="loginError"
+      v-bind:help-url="loginErrorHelp ? $helpUrlLogin : ''"
+    />
   </div>
 </template>
 
@@ -134,6 +136,7 @@ export default {
       isWelcomeMessage: true,
       welcomeMessage: '',
       loginError: '',
+      loginErrorHelp: false,
       input: {
         username: '',
         password: '',
@@ -205,9 +208,11 @@ export default {
             }
             this.$bvModal.show('modal-informational');
             this.loginError = this.$t('message.login_unauthorized');
+            this.loginErrorHelp = false;
           } else if (err.response.status === 403) {
             this.$bvModal.show('modal-informational');
             this.loginError = this.$t('message.login_forbidden');
+            this.loginErrorHelp = false;
           }
         });
     },
@@ -231,11 +236,13 @@ export default {
           } else {
             this.$bvModal.show('modal-informational');
             this.loginError = this.$t('message.login_permission_required');
+            this.loginErrorHelp = true;
           }
         })
         .catch(() => {
           this.$bvModal.show('modal-informational');
           this.loginError = this.$t('condition.unsuccessful_action');
+          this.loginErrorHelp = false;
         });
     },
     isOidcAvailableInFrontend() {
@@ -325,9 +332,11 @@ export default {
               if (err.response.status === 401) {
                 this.$bvModal.show('modal-informational');
                 this.loginError = this.$t('message.login_unauthorized');
+                this.loginErrorHelp = false;
               } else if (err.response.status === 403) {
                 this.$bvModal.show('modal-informational');
                 this.loginError = this.$t('message.login_forbidden');
+                this.loginErrorHelp = false;
               }
             })
             .finally(() => {
