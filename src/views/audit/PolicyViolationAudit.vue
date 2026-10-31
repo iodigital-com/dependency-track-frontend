@@ -322,7 +322,12 @@ export default {
               row.project.name,
               row.project.version,
             );
-            return `<a href="${url}">${xssFilters.inHTMLData(name)}</a>`;
+            const title = common.formatProjectAncestorsTitle(
+              row.project.ancestors,
+              row.project.name,
+              row.project.version,
+            );
+            return `<a href="${url}"${title}>${xssFilters.inHTMLData(name)}</a>`;
           },
         },
         {

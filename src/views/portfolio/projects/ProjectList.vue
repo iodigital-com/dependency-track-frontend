@@ -313,7 +313,12 @@ export default {
               const title = common.getCollectionLogicText(this, row);
               collectionIcon = ` <i class="fa fa-calculator fa-fw icon-cellend" title="${title}"></i>`;
             }
-            return `<a href="${url}">${xssFilters.inHTMLData(value)}</a>${collectionIcon}`;
+            const title = common.formatProjectAncestorsTitle(
+              row.ancestors,
+              row.name,
+              row.version,
+            );
+            return `<a href="${url}"${title}>${xssFilters.inHTMLData(value)}</a>${collectionIcon}`;
           },
         },
         {

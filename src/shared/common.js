@@ -35,6 +35,31 @@ $common.formatNotificationLabel = function formatNotificationLabel(
 };
 
 /**
+ * Returns a title attribute that shows where a project is in the project hierarchy
+ * as a tooltip (e.g. "acme-org › acme-app 1.0 › acme-api 2.0"), or an empty string
+ * for projects without ancestors.
+ *
+ * @param {Array} ancestors the project's ancestors, ordered from the root to the direct parent
+ * @param {string} name the project's name
+ * @param {string} version the project's version
+ */
+$common.formatProjectAncestorsTitle = function formatProjectAncestorsTitle(
+  ancestors,
+  name,
+  version,
+) {
+  if (!ancestors || ancestors.length === 0) {
+    return '';
+  }
+  const path = [...ancestors, { name, version }]
+    .map((project) =>
+      $common.concatenateComponentName(null, project.name, project.version),
+    )
+    .join(' › ');
+  return ` title="${xssFilters.inDoubleQuotedAttr(path)}"`;
+};
+
+/**
  * Formats and returns a specialized label for a project tag.
  */
 $common.formatProjectTagLabel = function formatProjectTagLabel(router, tag) {
@@ -734,6 +759,7 @@ export default {
   formatSourceLabel: $common.formatSourceLabel,
   formatNotificationLabel: $common.formatNotificationLabel,
   formatProjectTagLabel: $common.formatProjectTagLabel,
+  formatProjectAncestorsTitle: $common.formatProjectAncestorsTitle,
   formatProjectTeamLabel: $common.formatProjectTeamLabel,
   formatVulnerabilityTagLabel: $common.formatVulnerabilityTagLabel,
   capitalize: $common.capitalize,

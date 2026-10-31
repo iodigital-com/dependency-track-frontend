@@ -135,6 +135,7 @@ const EXPAND_BY_COLUMN = {
   metrics: 'metrics',
   'package_artifact_metadata.published_at': 'package_artifact_metadata',
   'hash_verification.status': 'package_artifact_metadata',
+  'project.name': 'project_ancestors',
 };
 
 const COLUMN_DEFAULT_VISIBILITY = {
@@ -491,7 +492,12 @@ export default {
               row.project.name,
               row.project.version,
             );
-            return `<a href="${url}">${xssFilters.inHTMLData(name)}</a>`;
+            const title = common.formatProjectAncestorsTitle(
+              row.project.ancestors,
+              row.project.name,
+              row.project.version,
+            );
+            return `<a href="${url}"${title}>${xssFilters.inHTMLData(name)}</a>`;
           },
         },
         {

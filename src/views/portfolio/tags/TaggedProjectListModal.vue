@@ -95,7 +95,12 @@ export default {
               name: 'Project',
               params: { uuid: row.uuid },
             }).route.fullPath;
-            return `<a href="${href}">${xssFilters.inHTMLData(value)}</a>`;
+            const title = common.formatProjectAncestorsTitle(
+              row.ancestors,
+              row.name,
+              row.version,
+            );
+            return `<a href="${href}"${title}>${xssFilters.inHTMLData(value)}</a>`;
           },
         },
         {
