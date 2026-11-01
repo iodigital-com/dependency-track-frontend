@@ -21,6 +21,14 @@
         <LocalePicker />
       </b-dropdown-form>
       <b-dropdown-divider />
+      <b-dropdown-item
+        v-if="$helpUrl"
+        :href="$helpUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><i class="fa fa-question-circle text-primary" />
+        {{ $t('message.help') }}</b-dropdown-item
+      >
       <b-dropdown-item @click="logout"
         ><i class="fa fa-sign-out text-primary" />
         {{ $t('message.logout') }}</b-dropdown-item
